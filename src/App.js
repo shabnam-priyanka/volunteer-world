@@ -1,25 +1,27 @@
 import React, { useState } from 'react';
 import './App.css';
-import Header from './Component/Header/Header';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Main from './Main/Main';
-import Login from './Component/Header/Login/Login';
+import Login from './Component/Login/Login';
 import {
   BrowserRouter as Router,
   Switch,
   Route
 } from "react-router-dom";
-import Register from './Component/Header/Register/Register';
-import VolunteerActivity from './Component/Header/VolunteerActivity/VolunteerActivity';
-import VolunteerDetails from './Component/Header/VolunteerDetails/VolunteerDetails';
+import VolunteerDetails from './Component/VolunteerDetails/VolunteerDetails';
 import { createContext } from 'react';
-import AdminPanel from './Component/Header/AdminPanel/AdminPanel';
+import AdminPanel from './Component/AdminPanel/AdminPanel';
+// import PrivateRoute from './Component/PrivateRoute/PrivateRoute';
+import Header from './Component/Header/Header';
+import VolunteerActivity from './Component/VolunteerActivity/VolunteerActivity';
+import Register from './Component/Register/Register';
+import PrivateRoute from './Component/PrivateRoute/PrivateRoute';
 
 export const UserContext = createContext();
 
 
 function App() {
-  const [loggedInUser, setLoggedInUser] = useState({});
+  const [loggedInUser, setLoggedInUser] = useState([]);
   console.log(loggedInUser);
   return (
     <div>
@@ -33,9 +35,9 @@ function App() {
           <Route path="/login">
             <Login />
           </Route>
-          <Route path="/registration/:id">
+          <PrivateRoute path="/registration/:_id">
             <Register />
-          </Route>
+          </PrivateRoute>
           <Route path="/volunteerdetails">
             <VolunteerDetails />
           </Route>

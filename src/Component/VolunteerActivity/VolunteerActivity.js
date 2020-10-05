@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { useEffect } from 'react';
-import { UserContext } from '../../../App';
+import { UserContext } from '../../App';
 
 
 
@@ -22,7 +22,7 @@ const VolunteerActivity = () => {
         <div>
             <h1>you have: {activity.length} </h1>
             {
-                activity.map(register => <li>{register.name} {register.title} </li> )
+                activity.map(register => <div><img src={register.img} alt=""/><p>{register.name} {register.title} {register._id}</p> </div> )
             }
         </div>
     );

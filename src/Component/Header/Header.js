@@ -12,7 +12,7 @@ const Header = () => {
             <Navbar>
                 <Navbar.Brand href="#home"><img style={{height:'60px'}} src={logos} alt=""/> </Navbar.Brand>
                 <Nav className="mr-auto" style={{marginLeft:'800px'}}>
-                    <Nav.Link href="#home">Home</Nav.Link>
+                    <Nav.Link  href="/">Home</Nav.Link>
                     <Nav.Link href="#donation">Donation</Nav.Link>
                     <Nav.Link href="#events">Events</Nav.Link>
                     <Nav.Link href="#blog">Blog</Nav.Link>
