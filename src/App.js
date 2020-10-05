@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import Header from './Component/Header/Header';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -12,14 +12,18 @@ import {
 import Register from './Component/Header/Register/Register';
 import VolunteerActivity from './Component/Header/VolunteerActivity/VolunteerActivity';
 import VolunteerDetails from './Component/Header/VolunteerDetails/VolunteerDetails';
+import { createContext } from 'react';
+import AdminPanel from './Component/Header/AdminPanel/AdminPanel';
 
-
+export const UserContext = createContext();
 
 
 function App() {
+  const [loggedInUser, setLoggedInUser] = useState({});
+  console.log(loggedInUser);
   return (
     <div>
-    
+    <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
       <Router>
       <Header></Header>
       <Switch>
@@ -35,15 +39,18 @@ function App() {
           <Route path="/volunteerdetails">
             <VolunteerDetails />
           </Route>
-          <Route path="/volunteer">
+          <Route path="/volunteeractivity">
             <VolunteerActivity />
           </Route>
-          <Route path="/">
+          <Route path="/adminpanel">
+            <AdminPanel />
+          </Route>
+          <Route exact path="/">
             <Main />
           </Route>
         </Switch>
       </Router>
-
+      </UserContext.Provider>
       
 
 

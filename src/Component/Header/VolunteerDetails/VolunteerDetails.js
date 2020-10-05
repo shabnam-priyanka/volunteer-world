@@ -1,7 +1,7 @@
 import React from 'react';
-import fakeData from '../../../Main/fakeData';
+//import fakeData from '../../../Main/fakeData';
 
-
+//sending fake data to backend from here
 
 const VolunteerDetails = () => {
     
@@ -12,7 +12,7 @@ const VolunteerDetails = () => {
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(fakeData) 
+        body: JSON.stringify() 
         })
     }
 

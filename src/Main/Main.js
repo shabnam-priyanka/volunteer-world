@@ -24,8 +24,8 @@ const Main = () => {
                 <CardDeck className= 'col-md-3 mb-5' >
                     <Card >
                         <Link to={'/registration/'+card.id}> <Card.Img variant="top" src={card.img} /></Link>
-                        <Card.Body>
-                            <Card.Title>{card.title} </Card.Title>
+                        <Card.Body  >
+                            <Card.Title >{card.title} </Card.Title>
                             {/* <Card.Text>
                                 This is a wider card with supporting text below as a natural lead-in to
                                 additional content. This content is a little bit longer.

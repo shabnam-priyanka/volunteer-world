@@ -1,21 +1,27 @@
 import React from 'react';
 import * as firebase from "firebase/app";
 import "firebase/auth";
-import { Link } from 'react-router-dom';
 import firebaseConfig from './firebaseConfig';
 import google from '../../../images/google.png';
+import { useContext } from 'react';
+import { UserContext } from '../../../App';
 
 
 firebase.initializeApp(firebaseConfig);
 
 const Login = () => {
+    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+
+
+
     const provider = new firebase.auth.GoogleAuthProvider();
     const googleSignIn = () => {
         console.log('click');
         firebase.auth().signInWithPopup(provider)
-        .then(res => {
-            const {name, email} = res.user;
-            console.log(name, email);
+        .then(function (result) {
+            const { displayName, email } = result.user;
+            const signedInUser = { name: displayName, email }
+            setLoggedInUser(signedInUser);
             // This gives you a Google Access Token. You can use it to access the Google API.
             //var token = result.credential.accessToken;
             // The signed-in user info.
@@ -35,11 +41,10 @@ const Login = () => {
     return (
         <div>
             <h1 onClick={googleSignIn}>Login with google</h1>
-            <Link to=''>
-            <img src={google} alt="" style={{ height: '25px', width: '30px' }} onClick={googleSignIn} /> Login with Google+
-            </Link>
             
-            <h6 style={{cursor:'pointer'}}><span>Don't have an account?  Create an account </span></h6>
+            <img src={google} alt="" style={{ height: '25px', width: '30px' }} onClick={googleSignIn} /> Login with Google+
+            
+            
 
         </div>
     );
