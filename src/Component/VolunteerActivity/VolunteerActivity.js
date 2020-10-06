@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { useEffect } from 'react';
+import { Button, Card } from 'react-bootstrap';
 import { UserContext } from '../../App';
 
 
@@ -22,7 +23,13 @@ const VolunteerActivity = () => {
         <div>
             <h1>you have: {activity.length} </h1>
             {
-                activity.map(register => <div><img src={register.img} alt=""/><p>{register.name} {register.title} {register._id}</p> </div> )
+                activity.map(register =><Card key={register._id} style={{ width: '18rem' }}>
+                <Card.Img variant="top" src={register.img} />
+                <Card.Body>
+                  <Card.Title>{register.title}</Card.Title>
+                  <Button variant="primary">cancel</Button>
+                </Card.Body>
+              </Card> )
             }
         </div>
     );

@@ -24,6 +24,7 @@ const Register = () => {
                 setEvents(data)
             })
     }, [_id])
+    console.log(events);
     const onSubmit = data => {
 
         const registrationData = { ...loggedInUser, data, ...events }
@@ -48,7 +49,7 @@ const Register = () => {
                 <input name="name" defaultValue={loggedInUser.name} ref={register({ required: true })} placeholder="Full Name" />
                 <input name="email" defaultValue={loggedInUser.email} ref={register({ required: true })} placeholder="Username or Email" />
                 <input name="date" type='date' ref={register({ required: true })} placeholder="Date" />
-                <input name="Description" ref={register({ required: true })} placeholder="Volunteer title" />
+                <input name="Description" ref={register({ required: true })} defaultValue={events.title} placeholder="Volunteer title" />
                 <input type="submit" />
             </form>
         </div>

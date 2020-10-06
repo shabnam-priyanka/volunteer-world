@@ -49,14 +49,16 @@ const Login = () => {
             });
     }
     return (
-        <div className='style'>
-            <h1 onClick={googleSignIn}>Login with google</h1>
+        
+        <div className='style' onClick={googleSignIn} style={{cursor:"pointer"}} >
+            <h1 >Login with google</h1>
 
-            <img src={google} alt="" style={{ height: '25px', width: '30px' }} onClick={googleSignIn} /> Login with Google+
+            <img src={google} alt="" style={{ height: '25px', width: '30px' }}  /> Login with Google+
 
 
 
         </div>
+        
     );
 };
 

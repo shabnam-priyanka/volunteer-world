@@ -22,39 +22,40 @@ export const UserContext = createContext();
 
 function App() {
   const [loggedInUser, setLoggedInUser] = useState([]);
-  //const [volunteerTitle, setvolunteerTitle] = useState([]);
+  //const [volunteerTitle, setVolunteerTitle] = useState([]);
   console.log(loggedInUser);
   return (
     <div>
-    <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
-      <Router>
-      <Header></Header>
-      <Switch>
-          <Route path="/main">
-            <Main />
-          </Route>
-          <Route path="/login">
-            <Login />
-          </Route>
-          <PrivateRoute path="/registration/:id">
-            <Register />
-          </PrivateRoute>
-          <Route path="/volunteerdetails">
-            <VolunteerDetails />
-          </Route>
-          <Route path="/volunteeractivity">
-            <VolunteerActivity />
-          </Route>
-          <Route path="/adminpanel">
-            <AdminPanel />
-          </Route>
-          <Route exact path="/">
-            <Main />
-          </Route>
-        </Switch>
-      </Router>
+      <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
+        <Router>
+
+          <Switch>
+            <Route path="/main">
+
+              <Main />
+            </Route>
+            <Route path="/login">
+              <Login />
+            </Route>
+            <PrivateRoute path="/registration/:_id">
+              <Register />
+            </PrivateRoute>
+            <Route path="/volunteerdetails">
+              <VolunteerDetails />
+            </Route>
+            <Route path="/volunteeractivity">
+              <VolunteerActivity />
+            </Route>
+            <Route path="/adminpanel">
+              <AdminPanel />
+            </Route>
+            <Route exact path="/">
+              <Main />
+            </Route>
+          </Switch>
+        </Router>
       </UserContext.Provider>
-      
+
 
 
     </div>
