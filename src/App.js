@@ -22,6 +22,7 @@ export const UserContext = createContext();
 
 function App() {
   const [loggedInUser, setLoggedInUser] = useState([]);
+  //const [volunteerTitle, setvolunteerTitle] = useState([]);
   console.log(loggedInUser);
   return (
     <div>
@@ -35,7 +36,7 @@ function App() {
           <Route path="/login">
             <Login />
           </Route>
-          <PrivateRoute path="/registration/:_id">
+          <PrivateRoute path="/registration/:id">
             <Register />
           </PrivateRoute>
           <Route path="/volunteerdetails">

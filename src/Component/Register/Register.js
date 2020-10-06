@@ -1,7 +1,6 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { useContext } from 'react';
-// import { UserContext } from '../../app';
 import './Register.css';
 import { useHistory, useParams } from 'react-router-dom';
 import { useState } from 'react';
@@ -11,17 +10,12 @@ import { UserContext } from '../../App';
 
 const Register = () => {
     const { _id } = useParams();
-    const [products, setProducts] = useState([]);
     const [events, setEvents] = useState({});
     const history = useHistory();
     const { register, handleSubmit } = useForm();
     const [loggedInUser, setLoggedInUser] = useContext(UserContext)
-    
-    useEffect(() => {
-        fetch('http://localhost:5000/call')
-            .then(res => res.json())
-            .then(data => setProducts(data))
-    }, [])
+
+
 
     useEffect(() => {
         fetch(`http://localhost:5000/registration/${_id}`)
@@ -32,7 +26,7 @@ const Register = () => {
     }, [_id])
     const onSubmit = data => {
 
-        const registrationData = { ...loggedInUser, ...data, ...products }
+        const registrationData = { ...loggedInUser, data, ...events }
         console.log(registrationData);
         fetch('http://localhost:5000/shabnam', {
             method: 'POST',
@@ -48,18 +42,13 @@ const Register = () => {
                 }
             })
     };
-
-
-
-
-
     return (
         <div>
             <form className="register" onSubmit={handleSubmit(onSubmit)}>
                 <input name="name" defaultValue={loggedInUser.name} ref={register({ required: true })} placeholder="Full Name" />
                 <input name="email" defaultValue={loggedInUser.email} ref={register({ required: true })} placeholder="Username or Email" />
                 <input name="date" type='date' ref={register({ required: true })} placeholder="Date" />
-                <input name="Description"  ref={register({ required: true })} placeholder="Volunteer title" />
+                <input name="Description" ref={register({ required: true })} placeholder="Volunteer title" />
                 <input type="submit" />
             </form>
         </div>

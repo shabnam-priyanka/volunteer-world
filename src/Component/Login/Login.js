@@ -6,7 +6,7 @@ import google from '../../images/google.png';
 import { useContext } from 'react';
 import { UserContext } from '../../App';
 import { useHistory, useLocation } from 'react-router-dom';
-
+import './Login.css';
 
 firebase.initializeApp(firebaseConfig);
 
@@ -49,7 +49,7 @@ const Login = () => {
             });
     }
     return (
-        <div>
+        <div className='style'>
             <h1 onClick={googleSignIn}>Login with google</h1>
 
             <img src={google} alt="" style={{ height: '25px', width: '30px' }} onClick={googleSignIn} /> Login with Google+
