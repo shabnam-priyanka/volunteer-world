@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 const AdminPanel = () => {
     const [user, setUser] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/every')
+        fetch('https://web-crap.herokuapp.com/every')
             .then(res => res.json())
             .then(data => {
                 setUser(data)
@@ -17,7 +17,7 @@ const AdminPanel = () => {
     }, [])
 
     const deleteUser = _id => {
-        fetch(`http://localhost:5000/deleteUser/${_id}`, {
+        fetch(`https://web-crap.herokuapp.com/deleteUser/${_id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())

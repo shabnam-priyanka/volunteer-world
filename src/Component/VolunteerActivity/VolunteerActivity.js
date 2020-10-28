@@ -13,7 +13,7 @@ const VolunteerActivity = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
 
     useEffect(() => {
-        fetch('http://localhost:5000/registration?email='+loggedInUser.email)
+        fetch('https://web-crap.herokuapp.com/registration?email='+loggedInUser.email)
         .then(res => res.json())
         .then(data => setActivity(data));
     }, [])

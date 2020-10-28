@@ -18,7 +18,7 @@ const Register = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/registration/${_id}`)
+        fetch(`https://web-crap.herokuapp.com/registration/${_id}`)
             .then(res => res.json())
             .then(data => {
                 setEvents(data)
@@ -29,7 +29,7 @@ const Register = () => {
 
         const registrationData = { ...loggedInUser, data, ...events }
         console.log(registrationData);
-        fetch('http://localhost:5000/shabnam', {
+        fetch('https://web-crap.herokuapp.com/shabnam', {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(registrationData)

@@ -7,7 +7,7 @@ const VolunteerDetails = () => {
     
     const handleAddDetail = () => {
         console.log('click');
-        fetch('http://localhost:5000/addDetails', {
+        fetch('https://web-crap.herokuapp.com/addDetails', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
